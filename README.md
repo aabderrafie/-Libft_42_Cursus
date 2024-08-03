@@ -114,7 +114,7 @@ To compile and use the library, follow these steps:
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/aabderrafie/libft_42_Cursus.git
+   git clone https://github.com/aabderrafie/libft_42.git
    cd libft
    ```
 
