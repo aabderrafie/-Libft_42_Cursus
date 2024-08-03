@@ -1,82 +1,151 @@
 
-# Libft (Library of Functions)
-# Introduction
-In this project, you'll create a custom library of functions. Below is the structure and purpose of the files you will work with:
+# Libft
 
-#.c Files
-This is where you'll write all your functions.
+## Overview
 
-# Header File (.h)
-Your header file serves two main purposes:
+**Libft** is a project to create your own C library. This library will contain a collection of general-purpose functions, which can be used in various projects throughout your curriculum. By implementing these functions, you will gain a deeper understanding of the inner workings of C standard library functions and memory management.
 
-Centralize includes: Instead of adding #include <unistd.h> in all your .c files, you include it once in your header file. All .c files will reference this header.
-Function declarations: If one .c file uses a function from another .c file, you don't need to write the function above. Simply include #include "libft.h" and it will locate the function in your header file.
-Remember to add #include "libft.h" in all your .c files.
+## Summary
 
-# Makefile
-The Makefile automates the compilation of your project. Unlike in the piscine, where you manually created an int main and used gcc to compile projects, with a Makefile, you can simply type make to compile your code once the Makefile is set up.
+The project requires you to write and compile a library of C functions that mimic standard libc functions, along with additional utility functions.
 
-Sure, here is an improved version with a more polished description:
+## Mandatory Part
 
----
+### Program Name
+`libft.a`
 
-# Libft Functions
+### Turn-in Files
+- `Makefile`
+- `libft.h`
+- `ft_*.c`
 
-## Character Functions (`<ctype.h>`)
+### Makefile Targets
+- `NAME`
+- `all`
+- `clean`
+- `fclean`
+- `re`
 
-- **ft_isalpha**: Determines if a character is alphabetic.
-- **ft_isdigit**: Checks if a character is a digit (0-9).
-- **ft_isalnum**: Verifies if a character is alphanumeric.
-- **ft_isascii**: Confirms if a character belongs to the ASCII set.
-- **ft_isprint**: Checks if a character is printable.
-- **ft_toupper**: Converts a character to uppercase.
-- **ft_tolower**: Converts a character to lowercase.
+### External Functions
+Detailed in the sections below.
 
-## String and Memory Functions (`<string.h>`)
+### Libft Authorization
+Not applicable.
 
-- **ft_memset**: Fills a block of memory with a specified byte.
-- **ft_strlen**: Computes the length of a string.
-- **ft_bzero**: Erases a block of memory by setting bytes to zero.
-- **ft_memcpy**: Copies bytes between memory areas.
-- **ft_memmove**: Safely copies bytes between overlapping memory areas.
-- **ft_strlcpy**: Copies a string to a buffer, ensuring null-termination.
-- **ft_strlcat**: Appends a string to a buffer, ensuring null-termination.
-- **ft_strchr**: Finds the first occurrence of a character in a string.
-- **ft_strrchr**: Finds the last occurrence of a character in a string.
-- **ft_strncmp**: Compares a specified number of characters between two strings.
-- **ft_memchr**: Scans memory for a specified byte.
-- **ft_memcmp**: Compares two blocks of memory.
-- **ft_strnstr**: Searches for a substring within a string.
-- **ft_strdup**: Creates a duplicate of a given string.
+### Description
+Create a library of functions that can be used in future projects. The library must include both standard libc functions with custom implementations and additional utility functions.
 
-## Conversion and Allocation Functions (`<stdlib.h>`)
+### Technical Considerations
+- Declaring global variables is forbidden.
+- Helper functions used to split a more complex function should be defined as static functions.
+- Place all your files at the root of your repository.
+- Do not turn in unused files.
+- All `.c` files must compile with the flags `-Wall -Wextra -Werror`.
+- Use the command `ar` to create your library. Using the `libtool` command is forbidden.
+- The `libft.a` library must be created at the root of your repository.
 
-- **ft_atoi**: Converts a string to an integer.
-- **ft_calloc**: Allocates memory for an array and initializes it to zero.
+## Part 1 - Libc Functions
 
-## Additional Utility Functions
+In this part, you must reimplement a set of standard libc functions. These functions will have the same prototypes and behavior as the originals but will have the `ft_` prefix. 
 
-- **ft_substr**: Extracts a substring from a given string.
-- **ft_strjoin**: Concatenates two strings into a new string.
-- **ft_strtrim**: Removes leading and trailing characters from a string.
-- **ft_split**: Splits a string into an array of substrings based on a delimiter.
-- **ft_itoa**: Converts an integer to a string.
-- **ft_strmapi**: Applies a function to each character of a string, creating a new string.
-- **ft_striteri**: Applies a function to each character of a string (modifying in place).
-- **ft_putchar_fd**: Outputs a character to a file descriptor.
-- **ft_putstr_fd**: Outputs a string to a file descriptor.
-- **ft_putendl_fd**: Outputs a string followed by a newline to a file descriptor.
-- **ft_putnbr_fd**: Outputs an integer to a file descriptor.
+The following functions must be implemented:
 
-## Linked List Functions
+- **Character Checks and Conversions**: `ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`
+- **String Manipulation**: `ft_strlen`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strnstr`, `ft_strlcpy`, `ft_strlcat`
+- **Memory Manipulation**: `ft_memset`, `ft_bzero`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`
+- **Conversion**: `ft_atoi`
+- **Memory Allocation**: `ft_calloc`, `ft_strdup`
 
-- **ft_lstnew**: Creates a new linked list element.
-- **ft_lstadd_front**: Adds an element to the beginning of a linked list.
-- **ft_lstsize**: Counts the number of elements in a linked list.
-- **ft_lstlast**: Retrieves the last element of a linked list.
-- **ft_lstadd_back**: Adds an element to the end of a linked list.
-- **ft_lstclear**: Deletes and frees all elements of a linked list.
-- **ft_lstiter**: Applies a function to each element of a linked list.
-- **ft_lstmap**: Creates a new linked list by applying a function to each element of an existing list.
-# Subject
-https://cdn.intra.42.fr/pdf/pdf/135135/en.subject.pdf
+## Part 2 - Additional Functions
+
+In this part, you will implement additional functions that are not part of the standard libc or are in a different form. These functions are useful for various common operations in C programming.
+
+### Additional Functions List
+
+- **String Manipulation**:
+  - `ft_substr`: Create a substring from a string.
+  - `ft_strjoin`: Join two strings into a new string.
+  - `ft_strtrim`: Trim characters from the beginning and end of a string.
+  - `ft_split`: Split a string into an array of strings using a delimiter.
+  - `ft_itoa`: Convert an integer to a string.
+  - `ft_strmapi`: Apply a function to each character of a string.
+  - `ft_striteri`: Apply a function to each character of a string, passing the index and character.
+
+- **File Descriptor Output**:
+  - `ft_putchar_fd`: Write a character to a file descriptor.
+  - `ft_putstr_fd`: Write a string to a file descriptor.
+  - `ft_putendl_fd`: Write a string to a file descriptor followed by a newline.
+  - `ft_putnbr_fd`: Write an integer to a file descriptor.
+
+## Bonus Part
+
+If you have completed the mandatory part, you can extend your library by implementing additional functions to manipulate linked lists. This bonus part will provide you with experience in working with dynamic data structures.
+
+### List Structure
+
+You must use the following structure to represent a node of your list:
+
+```c
+typedef struct s_list
+{
+    void *content;
+    struct s_list *next;
+} t_list;
+```
+
+- `content`: The data contained in the node (can store any type of data).
+- `next`: The address of the next node, or `NULL` if it is the last node.
+
+### Bonus Functions List
+
+- `ft_lstnew`: Create a new list node.
+- `ft_lstadd_front`: Add a node to the beginning of the list.
+- `ft_lstsize`: Count the number of nodes in a list.
+- `ft_lstlast`: Return the last node of the list.
+- `ft_lstadd_back`: Add a node to the end of the list.
+- `ft_lstdelone`: Delete a node and free its content.
+- `ft_lstclear`: Delete and free the entire list.
+- `ft_lstiter`: Iterate over a list and apply a function to each node's content.
+- `ft_lstmap`: Iterate over a list, apply a function to each node's content, and create a new list from the results.
+
+## Installation and Usage
+
+To compile and use the library, follow these steps:
+
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/yourusername/libft.git
+   cd libft
+   ```
+
+2. Compile the library using the Makefile:
+   ```sh
+   make
+   ```
+
+3. To clean object files:
+   ```sh
+   make clean
+   ```
+
+4. To clean object files and the library:
+   ```sh
+   make fclean
+   ```
+
+5. To recompile the library:
+   ```sh
+   make re
+   ```
+
+## Contributing
+
+Contributions are welcome! Feel free to fork the repository, make your changes, and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+Special thanks to the 42 Network and the community for their support and feedback.
